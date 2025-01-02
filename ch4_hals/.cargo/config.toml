@@ -1,5 +1,12 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = "probe-rs run --chip nRF52833_xxAA"
+runner = [
+  "probe-rs",
+  "run",
+  "--chip",
+  "nRF52833_xxAA",
+  "--log-format",
+  "{L} {s}",
+]
 
 rustflags = [
   "-C", "link-arg=-Tlink.x",

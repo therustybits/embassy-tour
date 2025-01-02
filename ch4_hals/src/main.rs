@@ -16,6 +16,5 @@ async fn main(_spawner: Spawner) {
         button_a.wait_for_low().await;
         info!("Button A pressed");
         button_a.wait_for_high().await;
-        info!("Button A released");
     }
 }

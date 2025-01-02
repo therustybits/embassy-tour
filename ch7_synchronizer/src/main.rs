@@ -32,15 +32,14 @@ async fn main(spawner: Spawner) {
     join(button_a, button_b).await;
 }
 
-async fn button(pin: AnyPin, id: &'static str, b: Button) {
+async fn button(pin: AnyPin, id: &str, b: Button) {
     let mut button = Input::new(pin, Pull::None);
     loop {
         button.wait_for_low().await;
-        info!("Button(fut) {} pressed", id);
+        info!("Button {} pressed (fut)", id);
         SIGNAL.signal(b);
         Timer::after_millis(200).await;
         button.wait_for_high().await;
-        info!("Button {} released", id);
     }
 }
 

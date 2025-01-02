@@ -18,6 +18,5 @@ async fn main(_spawner: Spawner) {
         info!("Button A pressed");
         Timer::after_millis(200).await;
         button_a.wait_for_high().await;
-        info!("Button A released");
     }
 }

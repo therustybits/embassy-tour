@@ -10,13 +10,13 @@ use panic_probe as _;
 /// that executor, which is what you'll probably want most of the time. Roughly
 /// expands to:
 /// 
-/// ```rust
+/// ``` rust
 /// #[embassy_executor::task]
 /// async fn __embassy_main(_spawner: Spawner) {
 ///     info!("Starting...");
 /// }
 /// #[cortex_m_rt::entry]
-/// fn main() {
+/// fn main() -> ! {
 ///     let mut executor = embassy_executor::Executor::new();
 ///     let executor = unsafe { __make_static(&mut executor) };
 ///     executor.run(|spawner| {

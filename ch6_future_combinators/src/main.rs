@@ -18,13 +18,15 @@ async fn main(_spawner: Spawner) {
     join(button_a, button_b).await;
 }
 
-async fn button(pin: AnyPin, id: &'static str) {
+// Running as a future within the `main` task gives us a bit more flexibility
+// with arguments (no static lifetime needed, generics now possible), at the
+// expense of no longer being able to wake these futures independently..
+async fn button(pin: AnyPin, id: &str) {
     let mut button = Input::new(pin, Pull::None);
     loop {
         button.wait_for_low().await;
-        info!("Button(fut) {} pressed", id);
+        info!("Button {} pressed (fut)", id);
         Timer::after_millis(200).await;
         button.wait_for_high().await;
-        info!("Button {} released", id);
     }
 }
