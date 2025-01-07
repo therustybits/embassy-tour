@@ -4,6 +4,7 @@ This is the code for the YouTube video, where we take a brief tour of some of th
 
 ## Prerequisites
 
+As of `embassy-executor` v0.7, you'll need Rust v1.83 or higher: be sure to run `rustup update` to avoid wonky `Waker`-related errors.. For those just getting started with Rust in embedded systems:
 - [Getting setup for embedded development in Rust](https://youtu.be/TOAynddiu5M)
 - [HALs & PACs : exploring the embedded Rust ecosystem](https://youtu.be/A9wvA_S6m7Y)
 - (Recommended) [The Rust Book](https://doc.rust-lang.org/book/)
