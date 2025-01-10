@@ -15,6 +15,7 @@ enum Button {
     A,
     B,
 }
+
 static SIGNAL: Signal<ThreadModeRawMutex, Button> = Signal::new();
 
 bind_interrupts!(struct Irqs {
@@ -48,7 +49,7 @@ async fn temp_task(mut temp: Temp<'static>) {
     const INTERVAL_MS: u64 = 500;
     let mut delay_ms = INTERVAL_MS;
     loop {
-        let value: u16 = temp.read().await.to_num();
+        let value = temp.read().await.to_num::<u16>();
         info!("{} C", value);
         let delay = Duration::from_millis(delay_ms);
         if let Some(v) = SIGNAL.wait().with_timeout(delay).await.ok() {

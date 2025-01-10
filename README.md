@@ -1,6 +1,6 @@
 # Embassy Tour
 
-This is the code for the YouTube video, where we take a brief tour of some of the crates within the `embassy` framework. The code for the end of each chapter is in its respective directory. Nothing groundbreaking here: just a resource for anyone that wants to play around with the code from the video :)
+This is the code for the [YouTube video](https://youtu.be/pDd5mXBF4tY), where we take a brief tour of some of the crates within the `embassy` framework. The code for the end of each chapter is in its respective directory. Nothing groundbreaking here: just a resource for anyone that wants to play around with the code from the video :)
 
 ## Prerequisites
 
